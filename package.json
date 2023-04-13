@@ -10,8 +10,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "crypt": "0.0.2",
     "express": "^4.18.2",
     "iipzy-shared": "file:../iipzy-shared",
-    "nexe": "^4.0.0-rc.2"
+    "nexe": "^4.0.0-rc.2",
+    "zlib": "^1.0.5"
   }
 }

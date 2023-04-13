@@ -1,7 +1,7 @@
 
 const express = require('express');
 
-const { encrypt, decrypt } = require("iipzy-shared/src/utils/encrypt-decrypt_impl");
+const { encrypt, decrypt } = require("./encrypt_decrypt");
 
 console.log("Encryption/Decryption");
 console.log("length = " + process.argv.length);
