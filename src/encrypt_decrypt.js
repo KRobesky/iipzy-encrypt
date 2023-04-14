@@ -50,7 +50,7 @@ function encrypt({ inputFile, outputFile, password }) {
   const writeStream = fs.createWriteStream(path.join(outputFile));
   
   readStream
-    .pipe(gzip)
+//    .pipe(gzip)
     .pipe(cipher)
     .pipe(appendInitVect)
     .pipe(writeStream);
@@ -75,7 +75,7 @@ function decrypt({ inputFile, outputFile, password }) {
 
     readStream
       .pipe(decipher)
-      .pipe(unzip)
+  //    .pipe(unzip)
       .pipe(writeStream);
   });
 }
