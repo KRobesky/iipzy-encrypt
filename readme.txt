@@ -24,28 +24,42 @@ Building on Linux/openWrt
 
 1.  cd /root/pi
 
-2.  mkdir iipzy-encrypt
+2.  git clone "http://github.com/KRobesky/iipzy-encrypt.git"
 
 3.  cd iipzy-encrypt
 
-5.  git clone "http://github.com/KRobesky/iipzy-encrypt.git"
+4.  npm i
 
-8.  cd ..
+4.  Install pkg: npm i pkg -g
 
-9.  cd iipzy-encrypt
+    check install: pkg -h
 
-10. npm i
+5.  pkg src/index.js -t node16-linux-arm64
 
-11. Install nexe: npm i nexe -g
+    produces: index
 
-    check install: nexe -h
+7.  rename: mv index iipzy-encrypt
 
-5.  cd src
+8.  run: ./iipzy-encrypt
 
-6.  nexe index.js --build
-
-7.  Build: nexe --build 
-
-8.  copy src.exe ..\iipzy-encrypt.exe
-
-9.  rem src.exe
+    Fails with: -bash: ./iipzy-encrypt: No such file or directory
+    
+    > ldd iipzy-encrypt
+        /lib/ld-linux-aarch64.so.1 (0xffffb0e16000)
+        libdl.so.2 => /lib/ld-linux-aarch64.so.1 (0xffffb0e16000)
+        libstdc++.so.6 => /usr/lib/libstdc++.so.6 (0xffffb0be4000)
+        libm.so.6 => /lib/ld-linux-aarch64.so.1 (0xffffb0e16000)
+        libgcc_s.so.1 => /lib/libgcc_s.so.1 (0xffffb0bbf000)
+        libpthread.so.0 => /lib/ld-linux-aarch64.so.1 (0xffffb0e16000)
+        libc.so.6 => /lib/ld-linux-aarch64.so.1 (0xffffb0e16000)
+        Error loading shared library ld-linux-aarch64.so.1: No such file or directory (needed by iipzy-encrypt)
+        Error relocating iipzy-encrypt: __getauxval: symbol not found
+        Error relocating iipzy-encrypt: __register_atfork: symbol not found
+        Error relocating iipzy-encrypt: makecontext: symbol not found
+        Error relocating iipzy-encrypt: backtrace: symbol not found
+        Error relocating iipzy-encrypt: setcontext: symbol not found
+        Error relocating iipzy-encrypt: getcontext: symbol not found
+        Error relocating iipzy-encrypt: backtrace_symbols: symbol not found
+        Error relocating iipzy-encrypt: gnu_get_libc_version: symbol not found
+        Error relocating iipzy-encrypt: __strdup: symbol not found
+        Error relocating iipzy-encrypt: __libc_stack_end: symbol not found
