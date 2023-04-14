@@ -14,11 +14,11 @@ See: https://www.section.io/engineering-education/compile-your-nodejs-applicatio
 
     check install: pkg -h
 
-5.  pkg src/index.js
+5.  pkg src/index.js -t node12-win-x64 -o iipzy-encrypt.exe
 
-    produces: index-win.exe
+    produces: iipzy-encrypt.exe
 
-6.  Rename: ren index-win.exe iipzy-encrypt.exe
+6.  Check in changes
 
 Building on Linux/openWrt
 
